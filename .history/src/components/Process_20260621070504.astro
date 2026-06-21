@@ -1,0 +1,93 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Discovery",
+    description: "We map out your exact business goals, target audience, and functional requirements before writing a single line of code.",
+    details: "During the discovery phase, we run a deep-dive strategy session to analyze your market competition, look over current technical assets, and map your business goals. We clear out guessing parameters and translate your ideas into a concrete feature blueprint before production lifecycle initialization."
+  },
+  {
+    num: "02",
+    title: "Architecture",
+    description: "We design the framework. Whether it's a dynamic storefront or self-hosted server infrastructure, we structure the foundation first.",
+    details: "We map out interactive navigation paths and solid wireframe frameworks to design structural data paths. By locking down layout hierarchies and server deployment mapping beforehand, we guarantee your app maintains absolute interface cohesion and robust system operations."
+  },
+  {
+    num: "03",
+    title: "Engineering",
+    description: "We build your custom environment using modern tech stacks, ensuring lightning-fast load times and a flawless mobile interface.",
+    details: "We translate approved interface blueprints into clean, high-performance source code. This involves optimization loop configuration, custom mobile responsiveness parameters, dynamic backend integration points, and rigid database connection architecture constructed for security."
+  },
+  {
+    num: "04",
+    title: "Launch",
+    description: "We run final performance tests, connect your custom domain, flip the switch, and hand you the keys to your new digital asset.",
+    details: "Prior to system hand-off, your application undergoes thorough speed optimization runs and component sanity sweeps. We configure your secure target domains, spin up live server hosting, deploy production assets, and present you with complete control keys."
+  }
+];
+
+const processStyles = [
+  {
+    bg: "bg-[#0b121f]/30",
+    border: "border-blue-500/10 hover:border-blue-500/40",
+    glow: "hover:shadow-[0_0_40px_rgba(59,130,246,0.06)]",
+    numColor: "group-hover:text-blue-500/10",
+    modalBg: "bg-[#040814]",
+    modalBorder: "border-blue-500/30",
+    modalHeader: "text-blue-400"
+  },
+  {
+    bg: "bg-[#180f19]/30",
+    border: "border-pink-500/10 hover:border-pink-500/40",
+    glow: "hover:shadow-[0_0_40px_rgba(236,72,153,0.06)]",
+    numColor: "group-hover:text-pink-500/10",
+    modalBg: "bg-[#120513]",
+    modalBorder: "border-pink-500/30",
+    modalHeader: "text-pink-400"
+  },
+  {
+    bg: "bg-[#0c1612]/30",
+    border: "border-green-500/10 hover:border-green-500/40",
+    glow: "hover:shadow-[0_0_40px_rgba(34,197,94,0.06)]",
+    numColor: "group-hover:text-green-500/10",
+    modalBg: "bg-[#040c08]",
+    modalBorder: "border-green-500/30",
+    modalHeader: "text-green-400"
+  },
+  {
+    bg: "bg-[#130f1c]/30",
+    border: "border-purple-500/10 hover:border-purple-500/40",
+    glow: "hover:shadow-[0_0_40px_rgba(168,85,247,0.06)]",
+    numColor: "group-hover:text-purple-500/10",
+    modalBg: "bg-[#0a0312]",
+    modalBorder: "border-purple-500/30",
+    modalHeader: "text-purple-400"
+  }
+];
+---
+
+<div class="grid gap-6">
+  {steps.map((step, patternIndex) => {
+    const style = processStyles[patternIndex % processStyles.length];
+    return (
+      <div
+        class={`group relative rounded-2xl border border-white/[0.02] p-8 transition-all duration-300 ease-out cursor-pointer hover:scale-[1.03] active:scale-[0.99] ${style.bg} ${style.border} ${style.glow}`}
+        data-process-card
+        data-title={step.title}
+        data-info={step.details}
+        data-modal-bg={style.modalBg}
+        data-modal-border={style.modalBorder}
+        data-modal-header={style.modalHeader}
+      >
+        <div class={`absolute top-4 left-6 font-bold text-7xl text-white/[0.02] select-none transition-colors duration-300 ${style.numColor}`}>
+          {step.num}
+        </div>
+
+        <div class="relative z-10 pt-12">
+          <h3 class="text-xl font-semibold text-white mb-2">{step.title}</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">{step.description}</p>
+        </div>
+      </div>
+    );
+  })}
+</div>

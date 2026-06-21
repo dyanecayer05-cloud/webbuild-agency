@@ -1,0 +1,200 @@
+---
+// src/pages/admin.astro
+import Layout from '../layouts/Layout.astro';
+import { UserButton } from '@clerk/astro/components';
+---
+
+<Layout title="Agency OS | Admin Dashboard">
+  <div class="h-screen w-full bg-[#030712] text-slate-200 font-sans flex overflow-hidden">
+    
+    <!-- Admin Sidebar -->
+    <aside class="w-72 bg-slate-900/40 border-r border-slate-800 flex flex-col justify-between backdrop-blur-xl flex-shrink-0">
+      <div class="p-8">
+        <h1 class="text-2xl font-bold text-white mb-10 tracking-tight">Agency <span class="text-indigo-500">OS</span></h1>
+        
+        <!-- Navigation Buttons (These control the tabs) -->
+        <nav class="space-y-3" id="sidebar-nav">
+          <button data-target="tab-inquiries" class="nav-btn w-full text-left block px-5 py-3.5 bg-indigo-500/10 text-indigo-400 rounded-xl border border-indigo-500/20 font-medium transition-all">
+            📥 Inquiries & Comms
+          </button>
+          <button data-target="tab-contracts" class="nav-btn w-full text-left block px-5 py-3.5 text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 rounded-xl transition-all border border-transparent">
+            📄 Contracts & Legal
+          </button>
+          <button data-target="tab-finance" class="nav-btn w-full text-left block px-5 py-3.5 text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 rounded-xl transition-all border border-transparent">
+            💼 Tax & Finance
+          </button>
+        </nav>
+      </div>
+      
+      <div class="p-8 border-t border-slate-800/60 bg-slate-900/20">
+        <a href="/" class="text-sm text-slate-400 hover:text-indigo-400 mb-6 block transition-colors">
+          ← Back to Live Site
+        </a>
+        <div class="flex items-center justify-between bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+          <span class="text-sm font-medium text-white">Active Session</span>
+            <div class="p-1.5 rounded-full bg-slate-800 border border-slate-700 shadow-inner">
+              {UserButton ? <UserButton /> : <a href="/login" class="text-sm text-slate-300">Sign in</a>}
+            </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Content Area -->
+    <main class="flex-1 flex flex-col h-full overflow-y-auto relative bg-[#030712]">
+      
+      <!-- TAB 1: INQUIRIES (The Generator) -->
+      <div id="tab-inquiries" class="portal-tab block w-full">
+        <header class="h-24 border-b border-slate-800/60 flex items-center px-12 bg-slate-900/20 sticky top-0 z-10">
+          <h2 class="text-2xl font-semibold text-white tracking-tight">Inquiry Response Generator</h2>
+        </header>
+        <div class="p-12 w-full max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 xl:grid-cols-3 gap-10">
+            <!-- Controls -->
+            <div class="xl:col-span-1 space-y-8">
+              <div class="bg-slate-900/30 border border-slate-800 p-8 rounded-2xl shadow-lg">
+                <h3 class="font-semibold text-white mb-6 text-lg">Client Details</h3>
+                <div class="space-y-6">
+                  <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-2">Client Name</label>
+                    <input type="text" id="clientName" placeholder="e.g. Sarah" class="w-full bg-slate-950/50 border border-slate-700/50 rounded-xl px-5 py-3.5 text-white focus:outline-none focus:border-indigo-500 transition-all">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-2">Business Type</label>
+                    <input type="text" id="businessType" placeholder="e.g. Bakery" class="w-full bg-slate-950/50 border border-slate-700/50 rounded-xl px-5 py-3.5 text-white focus:outline-none focus:border-indigo-500 transition-all">
+                  </div>
+                </div>
+              </div>
+              <div class="bg-slate-900/30 border border-slate-800 p-8 rounded-2xl shadow-lg">
+                <h3 class="font-semibold text-white mb-6 text-lg">Select Template</h3>
+                <div class="space-y-4">
+                  <button onclick="loadTemplate('ecommerce')" class="w-full text-left px-6 py-4 bg-slate-800/50 hover:bg-slate-700 border border-slate-700/50 rounded-xl transition-all text-sm font-medium text-slate-200">🛍️ E-Commerce Deep Dive</button>
+                  <button onclick="loadTemplate('standard')" class="w-full text-left px-6 py-4 bg-slate-800/50 hover:bg-slate-700 border border-slate-700/50 rounded-xl transition-all text-sm font-medium text-slate-200">🏢 Standard Business Build</button>
+                  <button onclick="loadTemplate('custom')" class="w-full text-left px-6 py-4 bg-slate-800/50 hover:bg-slate-700 border border-slate-700/50 rounded-xl transition-all text-sm font-medium text-slate-200">⚙️ Custom App Architecture</button>
+                </div>
+              </div>
+            </div>
+            <!-- Editor -->
+            <div class="xl:col-span-2">
+              <div class="bg-slate-900/30 border border-slate-800 rounded-2xl flex flex-col h-[700px] shadow-lg overflow-hidden">
+                <div class="p-6 border-b border-slate-800/60 flex justify-between items-center bg-slate-800/30">
+                  <span class="text-sm font-medium text-slate-300">Generated Response</span>
+                  <button id="copyBtn" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-indigo-500/20">Copy to Clipboard</button>
+                </div>
+                <textarea id="templateOutput" class="flex-1 w-full bg-slate-950/20 p-8 text-slate-200 resize-none focus:outline-none leading-relaxed text-base" placeholder="Select a template on the left..."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: CONTRACTS -->
+      <div id="tab-contracts" class="portal-tab hidden w-full">
+        <header class="h-24 border-b border-slate-800/60 flex items-center px-12 bg-slate-900/20 sticky top-0 z-10">
+          <h2 class="text-2xl font-semibold text-white tracking-tight">Contracts & Legal Repository</h2>
+        </header>
+        <div class="p-12 w-full max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-slate-900/30 border border-slate-800 p-8 rounded-2xl">
+              <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 border border-indigo-500/20 text-2xl">📝</div>
+              <h3 class="text-xl font-bold text-white mb-2">Master Services Agreement (MSA)</h3>
+              <p class="text-slate-400 mb-6">Your standard contract for all new web development clients.</p>
+              <button class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-2.5 rounded-lg border border-slate-700 transition-colors">Download PDF</button>
+            </div>
+            <div class="bg-slate-900/30 border border-slate-800 p-8 rounded-2xl">
+              <div class="w-12 h-12 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6 border border-pink-500/20 text-2xl">🔒</div>
+              <h3 class="text-xl font-bold text-white mb-2">Non-Disclosure Agreement (NDA)</h3>
+              <p class="text-slate-400 mb-6">Standard mutual NDA for discussing proprietary client app logic.</p>
+              <button class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-2.5 rounded-lg border border-slate-700 transition-colors">Download PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: FINANCE -->
+      <div id="tab-finance" class="portal-tab hidden w-full">
+        <header class="h-24 border-b border-slate-800/60 flex items-center px-12 bg-slate-900/20 sticky top-0 z-10">
+          <h2 class="text-2xl font-semibold text-white tracking-tight">Tax & Financial Overview</h2>
+        </header>
+        <div class="p-12 w-full max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="bg-slate-900/30 border border-slate-800 rounded-2xl p-8">
+              <h3 class="text-slate-400 text-sm font-semibold tracking-wider uppercase mb-3">YTD Revenue</h3>
+              <p class="text-5xl font-bold text-green-400">$12,450</p>
+            </div>
+            <div class="bg-slate-900/30 border border-slate-800 rounded-2xl p-8">
+              <h3 class="text-slate-400 text-sm font-semibold tracking-wider uppercase mb-3">Pending Invoices</h3>
+              <p class="text-5xl font-bold text-pink-400">$1,800</p>
+            </div>
+            <div class="bg-slate-900/30 border border-slate-800 rounded-2xl p-8">
+              <h3 class="text-slate-400 text-sm font-semibold tracking-wider uppercase mb-3">Active Subscriptions</h3>
+              <p class="text-5xl font-bold text-blue-400">14</p>
+            </div>
+          </div>
+          <div class="bg-slate-900/20 border border-dashed border-slate-700 rounded-2xl p-12 text-center">
+            <p class="text-slate-400 text-lg">Connect your Stripe or QuickBooks API here to view live transaction data.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script is:inline>
+    // --- TEMPLATE LOGIC ---
+    const templates = {
+      ecommerce: `Hi [Name],\n\nThanks for reaching out about building a web presence for your [Business]. \n\nTo ensure we engineer this perfectly without wasting your time on phone calls, we handle all project mapping asynchronously. Below is our deep-dive questionnaire. Please reply with your answers so I can draft your technical proposal and contract.\n\n1. Product Catalog: Roughly how many physical or digital items will you be selling?\n2. Payment Gateway: Do you currently use Stripe, Square, PayPal, or something else?\n3. Shipping: Do you need complex shipping logic (weight-based, international), or standard flat rates?\n4. Assets: Do you have high-res photography of your products ready to go?\n\nOnce you send this back, I will provide a custom quote and our standard development contract. \n\nBest,\nWeb Build Agency`,
+      standard: `Hi [Name],\n\nThanks for reaching out about a new site for your [Business]. \n\nWe specialize in high-performance, async-driven development. This means no mandatory Zoom meetings—just clean code and clear email communication. \n\nTo get started on your technical proposal, please reply with the following:\n\n1. Structure: What pages do you absolutely need? (e.g., Home, About, Services, Contact)\n2. Inspiration: Are there 2-3 websites in your industry that you love the look of?\n3. Content: Do you have the written text for the site, or will we need to assist with copywriting?\n4. Timeline: Are there any hard deadlines we need to hit?\n\nLooking forward to reviewing your answers and sending over the project contract.\n\nBest,\nWeb Build Agency`,
+      custom: `Hi [Name],\n\nThanks for inquiring about custom architecture for your [Business]. \n\nComplex applications require strict engineering parameters. Because we operate entirely async, we need a highly detailed brief before we can quote this project.\n\nPlease reply with a detailed scope of work including:\n- Required database structures (what user data are we storing?)\n- Third-party API integrations needed\n- User authentication requirements\n\nOnce we have the technical map, I will send over a master services agreement.\n\nBest,\nWeb Build Agency`
+    };
+
+    function loadTemplate(type) {
+      const name = document.getElementById('clientName').value || '[Name]';
+      const business = document.getElementById('businessType').value || '[Business]';
+      let rawText = templates[type];
+      document.getElementById('templateOutput').value = rawText.replace(/\[Name\]/g, name).replace(/\[Business\]/g, business);
+    }
+
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const text = document.getElementById('templateOutput');
+      if(!text.value) { alert('Please select a template first!'); return; }
+      text.select();
+      navigator.clipboard.writeText(text.value);
+      
+      const btn = document.getElementById('copyBtn');
+      const originalText = btn.innerText;
+      btn.innerText = 'Copied!';
+      btn.classList.replace('bg-indigo-600', 'bg-green-600');
+      btn.classList.replace('hover:bg-indigo-500', 'hover:bg-green-500');
+      
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.classList.replace('bg-green-600', 'bg-indigo-600');
+        btn.classList.replace('hover:bg-green-500', 'hover:bg-indigo-500');
+      }, 2000);
+    });
+
+    // --- TAB SWITCHING LOGIC ---
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const tabs = document.querySelectorAll('.portal-tab');
+
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // 1. Hide all tabs
+        tabs.forEach(tab => tab.classList.add('hidden'));
+        // 2. Remove active styling from all buttons
+        navBtns.forEach(b => {
+          b.classList.remove('bg-indigo-500/10', 'text-indigo-400', 'border-indigo-500/20');
+          b.classList.add('text-slate-400', 'border-transparent');
+        });
+        
+        // 3. Show target tab
+        const targetId = btn.getAttribute('data-target');
+        document.getElementById(targetId).classList.remove('hidden');
+        
+        // 4. Add active styling to clicked button
+        btn.classList.remove('text-slate-400', 'border-transparent');
+        btn.classList.add('bg-indigo-500/10', 'text-indigo-400', 'border-indigo-500/20');
+      });
+    });
+  </script>
+</Layout>

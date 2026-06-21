@@ -1,0 +1,77 @@
+---
+// src/components/Navbar.astro
+---
+<header class="navbar">
+  <div class="container">
+    <a href="/" class="logo">WebBuild<span>.</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn-contact">Get in Touch</a>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    background-color: #121212;
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #2a2a2a;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .logo span {
+    color: #3b82f6; /* Modern Blue */
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    color: #a3a3a3;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover {
+    color: white;
+  }
+  .btn-contact {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.6rem 1.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+  }
+  .btn-contact:hover {
+    background-color: #2563eb;
+  }
+</style>

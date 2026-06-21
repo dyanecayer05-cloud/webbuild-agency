@@ -1,0 +1,37 @@
+---
+/* Clerk sign-in page restored */
+// Decide whether to SSR Clerk based on environment; otherwise use client-only wrapper.
+const canSSR = Boolean(process.env.CLERK_PUBLISHABLE_KEY && process.env.ENABLE_SSR_CLERK);
+
+let SignIn = null;
+if (canSSR) {
+  const mod = await import('@clerk/astro/components');
+  SignIn = mod.SignIn ?? null;
+}
+---
+
+{canSSR && SignIn ? (
+  <SignIn forceRedirectUrl="/admin" />
+) : (
+  <ClientClerkSignIn client:idle />
+)}
+---
+// Sign-in page (Clerk removed for build)
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agency OS | Secure Login</title>
+</head>
+<body class="bg-[#0a0a0a] flex items-center justify-center h-screen w-screen px-4">
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-indigo-500/20 blur-[80px] rounded-full pointer-events-none"></div>
+      <p class="text-slate-400">Sign-in is disabled (CLERK_PUBLISHABLE_KEY not set)</p>
+  </div>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>

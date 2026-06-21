@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Process from '../components/Process.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Web Build Agency | Custom Digital Solutions">
+  <Navbar />
+  <main>
+    <Hero />
+    
+    <!-- 1. The ID must be exactly "services" so your navbar link jumps here -->
+    <section id="services" class="py-20 scroll-mt-20">
+      <Features />
+    </section>
+
+    <!-- 2. The ID must be exactly "process" so your navbar link jumps here -->
+    <section id="process" class="py-20 bg-linear-to-b from-transparent via-[#080d1a]/10 to-transparent border-t border-b border-white/2 scroll-mt-20">
+      <Process />
+    </section>
+    
+    <Pricing />
+    <Testimonials />
+    <About />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>

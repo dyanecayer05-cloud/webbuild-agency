@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* diagnostic: temporary outline to confirm CSS is loaded */
+body { outline: 4px solid magenta; }
