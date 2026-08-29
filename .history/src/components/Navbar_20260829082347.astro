@@ -61,7 +61,7 @@
   const menuLines = document.querySelectorAll('[data-menu-line]');
   const mobileLinks = mobileMenu?.querySelectorAll('a') ?? [];
 
-  function setMenuOpen(open: boolean): void {
+  function setMenuOpen(open: boolean) {
     if (!menuButton || !mobileMenu) return;
     menuButton.setAttribute('aria-expanded', String(open));
     mobileMenu.classList.toggle('hidden', !open);
