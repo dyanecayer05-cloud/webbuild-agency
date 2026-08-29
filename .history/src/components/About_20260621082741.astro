@@ -1,0 +1,137 @@
+---
+const benefits = [
+  {
+    title: "Local Trades & Shops",
+    desc: "Plumbers, bakeries, and boutiques who need to turn local searches into booked jobs and real foot traffic.",
+    details: "For local service businesses, visibility is everything. We build localized SEO structures that push you to the top of regional search results. Your site will feature instant-click-to-call buttons, seamless booking integrations, and integrated lead-capture forms so you never miss a job while you're out in the field.",
+    svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>`
+  },
+  {
+    title: "Startups & Creators",
+    desc: "Independent brands that need a sleek, high-end digital presence to attract investors or new followers.",
+    details: "First impressions make or break funding rounds and subscriber counts. We engineer premium, high-fidelity landing pages with smooth animations and deep analytics tracking. We integrate your newsletter captures, pitch materials, and social feeds into one cohesive, trust-building platform.",
+    svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>`
+  },
+  {
+    title: "E-Commerce Brands",
+    desc: "Retailers ready to bypass marketplace fees and sell directly to customers on their own custom platform.",
+    details: "Stop giving away your margins to third-party marketplaces. We build lightning-fast, custom storefronts using modern frameworks. You get zero-friction checkouts, abandoned cart recoveries, and complete control over your customer data and brand experience.",
+    svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>`
+  },
+  {
+    title: "Professional Services",
+    desc: "Law firms, clinics, and consultants who need a highly secure, trustworthy platform to capture client leads.",
+    details: "Trust is your biggest asset. We design highly professional, authoritative websites that validate your expertise instantly. Your platform will include secure document portals, private client intake forms, and automated consultation scheduling—all built on rock-solid, privacy-first infrastructure.",
+    svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>`
+  }
+];
+---
+
+<section id="about" class="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-28 border-t border-slate-800 scroll-mt-20">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    
+    <!-- Left Side: The Narrative -->
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+        What We Do.
+      </h2>
+      <h3 class="text-2xl md:text-3xl font-bold text-slate-100 mb-8 leading-tight tracking-tight">
+        We bridge the gap between <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-pink-400 to-purple-400">complex code</span> and local business.
+      </h3>
+      <p class="text-slate-400 text-lg md:text-xl mb-6 leading-relaxed font-normal">
+        Most web agencies overcomplicate the process to justify massive invoices. We do the opposite. We use modern, enterprise-grade engineering to build lightning-fast websites, and we package them into simple, interest-free monthly plans.
+      </p>
+      <p class="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 font-normal">
+        Whether you need a simple landing page or a full e-commerce storefront, we handle the technical heavy lifting so you can focus on running your business. No stress, no ridiculous upfront costs.
+      </p>
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-1 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+        <span class="text-slate-300 font-medium text-base md:text-lg tracking-wide">Asheboro, NC & Beyond</span>
+      </div>
+    </div>
+
+    <!-- Right Side: Who Benefits Grid -->
+    <div class="grid grid-cols-1 gap-6">
+      {benefits.map((item, index) => {
+        const patternIndex = index % 4;
+        
+        const cardStyles = [
+          { border: "hover:border-blue-500/40", glow: "hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]", icon: "text-blue-400", modalBg: "bg-[#030714]", modalBorder: "border-blue-500/30", modalHeader: "text-blue-400" },
+          { border: "hover:border-pink-500/40", glow: "hover:shadow-[0_0_30px_rgba(236,72,153,0.15)]", icon: "text-pink-400", modalBg: "bg-[#100312]", modalBorder: "border-pink-500/30", modalHeader: "text-pink-400" },
+          { border: "hover:border-green-500/40", glow: "hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]", icon: "text-green-400", modalBg: "bg-[#030a06]", modalBorder: "border-green-500/30", modalHeader: "text-green-400" },
+          { border: "hover:border-purple-500/40", glow: "hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]", icon: "text-purple-400", modalBg: "bg-[#0a0312]", modalBorder: "border-purple-500/30", modalHeader: "text-purple-400" }
+        ];
+
+        const style = cardStyles[patternIndex];
+
+        return (
+          <div 
+            class={`bg-slate-800/30 border border-slate-800/60 p-6 md:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group ${style.border} ${style.glow}`}
+            data-about-card
+            data-title={item.title}
+            data-info={item.details}
+            data-modal-bg={style.modalBg}
+            data-modal-border={style.modalBorder}
+            data-modal-header={style.modalHeader}
+          >
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-slate-100 font-semibold text-lg md:text-xl flex items-center gap-4">
+                <svg class={`w-6 h-6 group-hover:scale-110 transition-transform ${style.icon}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={item.svg}></svg>
+                {item.title}
+              </h4>
+              <span class="text-[10px] font-mono tracking-wider text-neutral-500 group-hover:text-white transition-colors">LEARN MORE →</span>
+            </div>
+            <p class="text-slate-400 text-sm md:text-base leading-relaxed pl-10">{item.desc}</p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<!-- MODAL POPUP FOR ABOUT SECTION -->
+<div id="about-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+  <div class="absolute inset-0 cursor-pointer" data-close-about-modal></div>
+  <div class="relative w-full max-w-5xl rounded-3xl border p-12 md:p-16 shadow-2xl transform translate-y-4 transition-all duration-300" id="about-modal-content">
+    <button class="text-neutral-400 hover:text-white transition-colors mb-8 flex items-center gap-2 text-sm font-mono tracking-wide" data-close-about-modal>
+      ← Back
+    </button>
+    <h2 id="about-modal-title" class="text-3xl md:text-5xl font-bold mb-6 tracking-tight leading-tight">Title</h2>
+    <div class="w-full h-px bg-white/10 mb-8"></div>
+    <p id="about-modal-desc" class="text-white text-lg md:text-2xl leading-relaxed font-normal max-w-4xl">Description</p>
+  </div>
+</div>
+
+<script>
+  const aboutCards = document.querySelectorAll('[data-about-card]');
+  const aModal = document.getElementById('about-modal');
+  const aModalContent = document.getElementById('about-modal-content');
+  const aCloseTriggers = document.querySelectorAll('[data-close-about-modal]');
+  const aTitle = document.getElementById('about-modal-title');
+  const aDesc = document.getElementById('about-modal-desc');
+
+  aboutCards.forEach(card => {
+    card.addEventListener('click', () => {
+      if (aTitle && aDesc && aModal && aModalContent) {
+        aTitle.innerText = card.getAttribute('data-title') || '';
+        aDesc.innerText = card.getAttribute('data-info') || '';
+        
+        aModalContent.className = `relative w-full max-w-5xl rounded-3xl border p-12 md:p-16 shadow-2xl transform transition-all duration-300 ${card.getAttribute('data-modal-bg')} ${card.getAttribute('data-modal-border')}`;
+        aTitle.className = `text-3xl md:text-5xl font-bold tracking-tight leading-tight ${card.getAttribute('data-modal-header')}`;
+        aDesc.className = "text-white text-lg md:text-2xl leading-relaxed font-normal max-w-4xl";
+
+        aModal.classList.remove('opacity-0', 'pointer-events-none');
+        aModalContent.classList.remove('translate-y-4');
+      }
+    });
+  });
+
+  aCloseTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      if (aModal && aModalContent) {
+        aModal.classList.add('opacity-0', 'pointer-events-none');
+        aModalContent.classList.add('translate-y-4');
+      }
+    });
+  });
+</script>

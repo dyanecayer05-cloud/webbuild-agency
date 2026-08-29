@@ -1,0 +1,90 @@
+---
+const services = [
+  {
+    title: "Custom Website Development",
+    description: "We build fast, secure websites tailored to your business goals using modern code—no slow, clunky templates.",
+    detailedInfo: "We build your website from scratch using clean, modern code. This means your site loads instantly, works perfectly on mobile phones, and is highly secure. Instead of forcing your business into a clunky, pre-made template that looks like everyone else's, we code a custom design tailored specifically to attract your clients and grow your brand.",
+  },
+  {
+    title: "Premium Branding & UI Design",
+    description: "Sleek, eye-catching layouts that build instant trust with your customers and guide them smoothly to buy or get in touch.",
+    detailedInfo: "Good design is about more than just looking pretty—it is about building trust. We create clean, dark-themed layouts with intentional color accents that make your business look highly professional. Every button, menu, and section is placed exactly where users expect it, making it effortless for your visitors to find your services and contact you.",
+  },
+  {
+    title: "Reliable Project Delivery",
+    description: "Clear timelines, step-by-step updates, and organized communication so you always know exactly where your project stands.",
+    detailedInfo: "We don't leave you guessing about when your site will be finished. We map out your entire project step-by-step before we write any code. You get clear milestones and regular updates, ensuring your website is completed on time, fits your budget perfectly, and launches without a single hitch.",
+  },
+  {
+    title: "Tech Support & Infrastructure",
+    description: "From setting up your domain and servers to keeping your equipment running cleanly, we handle the technical heavy lifting.",
+    detailedInfo: "We take care of all the confusing technical setups so you don't have to stress. We handle your custom domain connections, set up secure cloud servers, and run deep diagnostic checks to make sure your systems are perfectly optimized. Whether it is physical hardware tuning or backend cloud configurations, we ensure your tech is bulletproof.",
+  },
+];
+
+const serviceStyles = [
+  {
+    bg: "bg-blue-500/[0.02]",
+    border: "border-blue-500/20 group-hover:border-blue-500/50",
+    glow: "hover:shadow-[0_0_40px_rgba(59,130,246,0.08)]",
+    text: "text-blue-400",
+    modalBg: "bg-[#030714]",
+    modalBorder: "border-blue-500/30",
+    modalHeader: "text-blue-400",
+  },
+  {
+    bg: "bg-pink-500/[0.02]",
+    border: "border-pink-500/20 group-hover:border-pink-500/50",
+    glow: "hover:shadow-[0_0_40px_rgba(236,72,153,0.08)]",
+    text: "text-pink-400",
+    modalBg: "bg-[#100312]",
+    modalBorder: "border-pink-500/30",
+    modalHeader: "text-pink-400",
+  },
+  {
+    bg: "bg-green-500/[0.02]",
+    border: "border-green-500/20 group-hover:border-green-500/50",
+    glow: "hover:shadow-[0_0_40px_rgba(34,197,94,0.08)]",
+    text: "text-green-400",
+    modalBg: "bg-[#030a06]",
+    modalBorder: "border-green-500/30",
+    modalHeader: "text-green-400",
+  },
+  {
+    bg: "bg-purple-500/[0.02]",
+    border: "border-purple-500/20 group-hover:border-purple-500/50",
+    glow: "hover:shadow-[0_0_40px_rgba(168,85,247,0.08)]",
+    text: "text-purple-400",
+    modalBg: "bg-[#0a0312]",
+    modalBorder: "border-purple-500/30",
+    modalHeader: "text-purple-400",
+  },
+];
+---
+
+<div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+  {services.map((service, index) => {
+    const style = serviceStyles[index % serviceStyles.length];
+    return (
+      <div
+        class={`group relative rounded-2xl border border-white/[0.04] p-8 backdrop-blur-md transition-all duration-300 ease-out cursor-pointer hover:scale-[1.03] active:scale-[0.99] ${style.bg} ${style.border} ${style.glow}`}
+        data-service-card
+        data-title={service.title}
+        data-info={service.detailedInfo}
+        data-modal-bg={style.modalBg}
+        data-modal-border={style.modalBorder}
+        data-modal-header={style.modalHeader}
+      >
+        <div class="relative z-10 flex flex-col h-full justify-between min-h-[190px]">
+          <div>
+            <h3 class={`text-xl font-semibold mb-3 transition-colors ${style.text}`}>{service.title}</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">{service.description}</p>
+          </div>
+          <div class="text-[10px] font-mono tracking-wider text-slate-500 group-hover:text-white transition-colors mt-4">
+            LEARN MORE →
+          </div>
+        </div>
+      </div>
+    );
+  })}
+</div>
