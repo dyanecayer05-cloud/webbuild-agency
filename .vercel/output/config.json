@@ -20,7 +20,7 @@
 			"dest": "_render"
 		},
 		{
-			"src": "^/intake/?$",
+			"src": "^/api/intake/?$",
 			"dest": "_render"
 		},
 		{
