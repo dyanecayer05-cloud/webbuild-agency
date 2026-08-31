@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
-    "@astrojs/tailwind": "^6.0.2",
     "@astrojs/vercel": "^10.0.8",
     "@clerk/astro": "^3.4.6",
     "@tailwindcss/postcss": "^4.3.1",
