@@ -1,0 +1,44 @@
+---
+// src/components/Process.astro
+const steps = [
+  {
+    num: "01",
+    title: "Intake & Project Scope",
+    desc: "Fill out the simple intake brief below. Tell us your goals, target audience, and style preferences without having to sit through high-pressure sales calls."
+  },
+  {
+    num: "02",
+    title: "Engineering Sprint",
+    desc: "We build your bespoke responsive architecture, inject Google-compliant Schema.org LocalBusiness metadata, and test for perfect Lighthouse 100 performance."
+  },
+  {
+    num: "03",
+    title: "Production DNS Cutover",
+    desc: "We connect your custom domain, provision automated global SSL, and launch your turnkey digital presence to the world."
+  }
+];
+---
+
+<section id="process" class="w-full max-w-7xl mx-auto px-6 py-28 scroll-mt-24 border-t border-white/[0.06]">
+  <div class="max-w-3xl mb-16">
+    <div class="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-3 font-mono">How We Build</div>
+    <h2 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+      Transparent, sprint-based delivery.
+    </h2>
+    <p class="text-gray-400 text-lg leading-relaxed">
+      A systematic build pipeline designed to take your site from concept to live deployment with maximum speed.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {steps.map((step) => (
+      <div class="relative p-8 rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:border-indigo-500/40 transition duration-300 flex flex-col justify-between">
+        <div>
+          <span class="font-mono text-3xl font-bold text-indigo-400/40 mb-6 block">{step.num}</span>
+          <h3 class="text-xl font-bold text-white mb-3">{step.title}</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">{step.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
