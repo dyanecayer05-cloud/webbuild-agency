@@ -1,8 +1,0 @@
-node_modules/
-.DS_Store
-.history/
-dist/
-
-# clerk configuration (can include secrets)
-/.clerk/
-/.env.local

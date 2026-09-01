@@ -5,3 +5,7 @@ dist/
 .env.*
 .DS_Store
 webbuild-agency/
+.vercel/
+.history/
+test-results/
+playwright-report/

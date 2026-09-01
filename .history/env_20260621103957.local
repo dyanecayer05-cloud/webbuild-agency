@@ -1,2 +1,0 @@
-# replace pk_test_XXX with your real publishable key
-printf '%s\n' 'CLERK_PUBLISHABLE_KEY=pk_test_Z29yZ2VvdXMtZ3JhY2tsZS0xNy5jbGVyay5hY2NvdW50cy5kZXYk' > .env.local
