@@ -1,0 +1,48 @@
+---
+// src/components/Testimonials.astro
+const testimonials = [
+  {
+    quote: "Our old WordPress site was taking 6 seconds to load and costing us hundreds a month in maintenance. Craft and Code launched our new site in 3 days, loads instantly, and we've already seen an uptick in calls.",
+    author: "Marcus Vance",
+    role: "Owner, Vance Mechanical",
+    tag: "Trade Services"
+  },
+  {
+    quote: "Skipping the sales meetings and just submitting our brief was a breath of fresh air. The design is sleeker than anything an expensive agency quoted us, and we own 100% of our code.",
+    author: "Elena Rostova",
+    role: "Founder, Horizon Media",
+    tag: "Creator Platform"
+  }
+];
+---
+
+<section id="testimonials" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 scroll-mt-24 border-t border-slate-800/50">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="text-xs uppercase tracking-widest text-indigo-400 font-mono font-bold mb-2">Client Trust</div>
+    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
+      Built for real business outcomes.
+    </h2>
+    <p class="mt-3 text-slate-300 text-sm sm:text-base">
+      See how moving away from slow templates and agency bloat drives immediate growth.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {testimonials.map((t) => (
+      <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between relative hover:border-indigo-500/30 transition">
+        <p class="text-slate-200 text-sm sm:text-base leading-relaxed italic">
+          "{t.quote}"
+        </p>
+        <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between">
+          <div>
+            <div class="font-bold text-white text-sm">{t.author}</div>
+            <div class="text-xs text-slate-400">{t.role}</div>
+          </div>
+          <span class="text-[11px] font-mono font-semibold px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-indigo-300">
+            {t.tag}
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
