@@ -7,13 +7,13 @@ export default defineConfig({
   workers: 2,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
   },
   // Automatically boots Astro before running tests
   webServer: {
-    command: 'npm run preview',
-    port: 4321,
+    command: 'npm run dev',
+    port: 3000,
     reuseExistingServer: true,
     timeout: 60 * 1000,
   },

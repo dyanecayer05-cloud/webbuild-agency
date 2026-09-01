@@ -1,7 +1,7 @@
-import { c as createComponent } from './astro-component_BieVnjpC.mjs';
+import { c as createComponent } from './astro-component_Bk303lu1.mjs';
 import 'piccolore';
-import { o as renderComponent, k as renderTemplate, m as maybeRenderHead } from './entrypoint_CnuVE3iZ.mjs';
-import { $ as $$Layout } from './Layout_CW_9nUXG.mjs';
+import { o as renderComponent, k as renderTemplate, m as maybeRenderHead } from './entrypoint_DcaL-nbQ.mjs';
+import { $ as $$Layout } from './Layout_dLtWS5FA.mjs';
 
 const $$ThankYou = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Inquiry Received | Craft & Code" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="min-h-screen flex items-center justify-center px-6 py-24 bg-slate-950 text-slate-100"> <div class="max-w-xl w-full bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-10 md:p-12 text-center shadow-2xl"> <div class="w-16 h-16 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-bold">

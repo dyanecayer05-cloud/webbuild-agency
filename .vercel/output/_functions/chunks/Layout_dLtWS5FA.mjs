@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_BieVnjpC.mjs';
+import { c as createComponent } from './astro-component_Bk303lu1.mjs';
 import 'piccolore';
-import { k as renderTemplate, q as renderSlot, v as renderHead, h as addAttribute } from './entrypoint_CnuVE3iZ.mjs';
+import { k as renderTemplate, q as renderSlot, v as renderHead, h as addAttribute } from './entrypoint_DcaL-nbQ.mjs';
 import 'clsx';
 
 var __freeze = Object.freeze;

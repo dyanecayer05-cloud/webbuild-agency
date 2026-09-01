@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_BieVnjpC.mjs';
+import { c as createComponent } from './astro-component_Bk303lu1.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, k as renderTemplate, h as addAttribute, o as renderComponent } from './entrypoint_CnuVE3iZ.mjs';
-import { $ as $$Layout } from './Layout_CW_9nUXG.mjs';
+import { m as maybeRenderHead, k as renderTemplate, h as addAttribute, o as renderComponent } from './entrypoint_DcaL-nbQ.mjs';
+import { $ as $$Layout } from './Layout_dLtWS5FA.mjs';
 import 'clsx';
-import { r as renderScript } from './script_zqxn1RxM.mjs';
+import { r as renderScript } from './script_BM6q96Me.mjs';
 
 const $$Navbar = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<header class="sticky top-0 z-50 w-full bg-slate-950/85 backdrop-blur-xl border-b border-white/[0.08]"> <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"> <!-- Brand Identity: Craft and Code by H.H. Solutions --> <a href="#home" class="flex items-center gap-3 group"> <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-slate-900 border border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.25)] group-hover:border-indigo-400 transition-all duration-300"> <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16 6L24 10.5L20 12.8L16 10.5L12 12.8L16 6Z" fill="#818cf8" fill-opacity="0.4" stroke="#a5b4fc" stroke-width="1.25" stroke-linejoin="round"></path> <path d="M7 11.5L13 8V14L10 15.7V19.3L13 21V24L7 20.5V11.5Z" fill="#4f46e5" fill-opacity="0.65" stroke="#818cf8" stroke-width="1.5" stroke-linejoin="round"></path> <path d="M25 11.5L19 8V11L22 12.7V19.3L16 22.8L16 26L25 20.5V11.5Z" fill="#06b6d4" fill-opacity="0.35" stroke="#22d3ee" stroke-width="1.5" stroke-linejoin="round"></path> <circle cx="16" cy="16.5" r="1.75" fill="#38bdf8"></circle> </svg> </div> <div> <span class="font-bold text-lg tracking-tight text-white group-hover:text-indigo-200 transition">

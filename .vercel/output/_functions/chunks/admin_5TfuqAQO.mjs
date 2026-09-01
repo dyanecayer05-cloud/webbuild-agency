@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_BieVnjpC.mjs';
+import { c as createComponent } from './astro-component_Bk303lu1.mjs';
 import 'piccolore';
-import { o as renderComponent, k as renderTemplate, m as maybeRenderHead } from './entrypoint_CnuVE3iZ.mjs';
-import { r as renderScript } from './script_zqxn1RxM.mjs';
-import { $ as $$Layout } from './Layout_CW_9nUXG.mjs';
+import { o as renderComponent, k as renderTemplate, m as maybeRenderHead } from './entrypoint_DcaL-nbQ.mjs';
+import { r as renderScript } from './script_BM6q96Me.mjs';
+import { $ as $$Layout } from './Layout_dLtWS5FA.mjs';
 
 const $$Admin = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Admin Command Center | Craft and Code by H.H. Solutions" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="min-h-screen bg-slate-950 text-slate-100 flex flex-col"> <!-- Top Bar --> <header class="h-20 border-b border-white/[0.08] px-6 sm:px-10 flex items-center justify-between bg-slate-900/50 backdrop-blur-xl"> <div class="flex items-center gap-3"> <div class="flex items-center justify-center w-9 h-9 rounded-xl bg-slate-900 border border-indigo-500/40"> <span class="font-mono text-xs font-bold text-indigo-400">CC</span> </div> <div> <h1 class="font-bold text-base tracking-tight text-white">Agency Operations Hub</h1> <p class="text-[10px] font-mono text-indigo-400 uppercase">Craft and Code Admin</p> </div> </div> <div class="flex items-center gap-4"> <a href="/" class="text-xs text-slate-400 hover:text-white transition">View Live Site &rarr;</a> ${renderComponent($$result2, "ClientClerkUserButton", null, { "client:only": "react", "client:component-hydration": "only", "client:component-path": "/Users/devdyanecayer/hilal_bd_holdings/hh_solutions/solutions_subparent/modules/webbuild-agency-main/src/components/ClientClerkUserButton.jsx", "client:component-export": "default" })} </div> </header> <!-- Main Dashboard Grid --> <main class="flex-1 max-w-7xl w-full mx-auto p-6 sm:p-10 space-y-8"> <!-- Metrics Row --> <div class="grid grid-cols-1 sm:grid-cols-3 gap-6"> <div class="glow-card rounded-2xl p-6 bg-slate-900/60 border border-white/[0.08]"> <div class="text-xs font-mono text-slate-400 uppercase">System Status</div> <div class="text-2xl font-bold text-emerald-400 mt-2 flex items-center gap-2"> <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
