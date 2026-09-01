@@ -17,6 +17,7 @@
     "@clerk/astro": "^3.4.6",
     "@tailwindcss/postcss": "^4.3.1",
     "@tailwindcss/vite": "^4.3.1",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^6.4.7",
     "autoprefixer": "^10.4.14",
     "react": "^19.2.8",
