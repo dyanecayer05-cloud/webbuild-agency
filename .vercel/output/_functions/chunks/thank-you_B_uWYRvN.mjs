@@ -1,0 +1,31 @@
+import { c as createComponent } from './astro-component_BieVnjpC.mjs';
+import 'piccolore';
+import { o as renderComponent, k as renderTemplate, m as maybeRenderHead } from './entrypoint_CnuVE3iZ.mjs';
+import { $ as $$Layout } from './Layout_CW_9nUXG.mjs';
+
+const $$ThankYou = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Inquiry Received | Craft & Code" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="min-h-screen flex items-center justify-center px-6 py-24 bg-slate-950 text-slate-100"> <div class="max-w-xl w-full bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-10 md:p-12 text-center shadow-2xl"> <div class="w-16 h-16 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+✓
+</div> <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-white">
+Inquiry Received
+</h1> <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-8">
+Thanks for reaching out. We have received your project brief and will review your specifications. You will receive a structured scope outline and price quote within 24 business hours.
+</p> <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800/80 mb-8 text-sm text-slate-400"> <span class="text-indigo-400 font-semibold">Next Step:</span> No calls needed. Watch your inbox at the email you provided for our detailed breakdown.
+</div> <a href="/" class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-8 py-3.5 rounded-xl transition shadow-lg shadow-indigo-600/20">
+Return to Home
+</a> </div> </main> ` })}`;
+}, "/Users/devdyanecayer/hilal_bd_holdings/hh_solutions/solutions_subparent/modules/webbuild-agency-main/src/pages/thank-you.astro", void 0);
+
+const $$file = "/Users/devdyanecayer/hilal_bd_holdings/hh_solutions/solutions_subparent/modules/webbuild-agency-main/src/pages/thank-you.astro";
+const $$url = "/thank-you";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$ThankYou,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
